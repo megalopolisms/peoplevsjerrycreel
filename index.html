@@ -3,8 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE PEOPLE vs. JERRY CREEL</title>
+    <title>THE PEOPLE vs. JERRY CREEL | Biloxi Building Official Accountability</title>
+    <meta name="description" content="The criminal summons is dated July 9, 2025. The 4 supporting affidavits are dated July 10, 2025. What was the summons based on?">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="THE PEOPLE vs. JERRY CREEL">
+    <meta property="og:description" content="1 summons (July 9) + 4 affidavits (July 10) = Timeline Impossibility. What was the July 9 summons based on?">
+    <meta property="og:url" content="https://peoplevsjerrycreel.com">
+    <meta property="og:site_name" content="The People vs. Jerry Creel">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="THE PEOPLE vs. JERRY CREEL">
+    <meta name="twitter:description" content="1 summons (July 9) + 4 affidavits (July 10) = Timeline Impossibility">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-tertiary: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --text-muted: #888888;
+            --accent-red: #cc0000;
+            --accent-gold: #ffd700;
+            --accent-blue: #0066cc;
+            --border-dark: #333333;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,157 +44,1045 @@
         }
 
         body {
-            background: #000;
-            color: #fff;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Source Sans Pro', sans-serif;
             min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .site-header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-dark);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
         }
 
-        .container {
-            max-width: 800px;
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-primary);
+            text-decoration: none;
         }
 
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Main Layout */
+        .main-container {
+            display: flex;
+            margin-top: 60px;
+            min-height: calc(100vh - 60px);
+        }
+
+        /* Content Panel */
+        .content-panel {
+            flex: 1;
+            padding: 3rem;
+            max-width: 70%;
+            overflow-y: auto;
+        }
+
+        /* Timeline Sidebar */
+        .timeline-panel {
+            width: 30%;
+            min-width: 300px;
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border-dark);
+            padding: 2rem 0;
+            position: fixed;
+            right: 0;
+            top: 60px;
+            bottom: 0;
+            overflow-y: auto;
+        }
+
+        .timeline-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            padding: 0 1.5rem 1rem;
+            border-bottom: 1px solid var(--border-dark);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-event {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .timeline-event:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .timeline-event.active {
+            background: var(--bg-tertiary);
+            border-left-color: var(--accent-gold);
+        }
+
+        .timeline-event.critical {
+            border-left-color: var(--accent-red);
+        }
+
+        .timeline-event.critical.active {
+            border-left-color: var(--accent-gold);
+        }
+
+        .timeline-event.highlight {
+            background: rgba(255, 215, 0, 0.1);
+            border-left-color: var(--accent-gold);
+        }
+
+        .event-marker {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-dark);
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .timeline-event.critical .event-marker {
+            background: var(--accent-red);
+        }
+
+        .timeline-event.highlight .event-marker {
+            background: var(--accent-gold);
+            box-shadow: 0 0 10px var(--accent-gold);
+        }
+
+        .event-content {
+            flex: 1;
+        }
+
+        .event-date {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        .event-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-top: 0.25rem;
+        }
+
+        .timeline-event.critical .event-title {
+            color: var(--accent-red);
+        }
+
+        .timeline-event.highlight .event-title {
+            color: var(--accent-gold);
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Typography */
         h1 {
+            font-family: 'Oswald', sans-serif;
             font-size: 3rem;
-            font-weight: 900;
-            letter-spacing: 4px;
+            font-weight: 700;
+            letter-spacing: 3px;
             margin-bottom: 1rem;
             text-transform: uppercase;
         }
 
-        .subtitle {
-            color: #cc0000;
-            font-size: 1.2rem;
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 500;
             letter-spacing: 2px;
-            margin-bottom: 3rem;
+            margin: 2rem 0 1rem;
+            color: var(--text-secondary);
         }
 
-        .box {
-            border: 2px solid #333;
+        h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--accent-gold);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Special Elements */
+        .hero-question {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            color: var(--accent-gold);
+            text-align: center;
             padding: 2rem;
+            border: 3px solid var(--accent-gold);
+            background: rgba(255, 215, 0, 0.1);
             margin: 2rem 0;
-            background: #0a0a0a;
         }
 
-        .timeline {
+        .evidence-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-dark);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .evidence-box.critical {
+            border-color: var(--accent-red);
+            border-width: 2px;
+        }
+
+        .evidence-box.gold {
+            border-color: var(--accent-gold);
+            border-width: 2px;
+        }
+
+        .date-highlight {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--accent-red);
+        }
+
+        .timeline-visual {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 2rem;
-            margin: 2rem 0;
+            margin: 3rem 0;
             flex-wrap: wrap;
         }
 
         .date-box {
-            padding: 1rem 2rem;
-            border: 2px solid #cc0000;
+            padding: 1.5rem 2rem;
+            border: 2px solid var(--accent-red);
             background: rgba(204, 0, 0, 0.1);
+            text-align: center;
         }
 
-        .date {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #cc0000;
+        .date-box .date {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--accent-red);
         }
 
-        .label {
-            font-size: 0.9rem;
-            color: #888;
+        .date-box .label {
+            font-size: 1rem;
+            color: var(--text-muted);
             margin-top: 0.5rem;
         }
 
         .arrow {
-            font-size: 2rem;
-            color: #ffd700;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
         }
 
-        .question {
-            font-size: 1.8rem;
-            color: #ffd700;
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
             margin: 2rem 0;
-            padding: 1.5rem;
-            border: 3px solid #ffd700;
-            background: rgba(255, 215, 0, 0.1);
-        }
-
-        .coming-soon {
-            color: #666;
-            font-size: 0.9rem;
-            margin-top: 3rem;
-            letter-spacing: 2px;
-        }
-
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
         }
 
         .stat {
             text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-dark);
         }
 
         .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #fff;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--text-primary);
         }
 
         .stat-label {
             font-size: 0.8rem;
-            color: #888;
+            color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        .quote-box {
+            border-left: 4px solid var(--accent-gold);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            background: var(--bg-secondary);
+            font-style: italic;
+        }
+
+        .quote-attribution {
+            font-style: normal;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .btn-gold {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+        }
+
+        .btn-gold:hover {
+            background: #e6c200;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--text-muted);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        /* Footer */
+        .site-footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-dark);
+            padding: 2rem 3rem;
+            margin-right: 30%;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+
+        .footer-text a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        /* ASCII Art Box */
+        .ascii-box {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            white-space: pre;
+            overflow-x: auto;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .ascii-box .highlight {
+            color: var(--accent-gold);
+        }
+
+        .ascii-box .critical {
+            color: var(--accent-red);
+        }
+
+        /* Contact Card */
+        .contact-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-dark);
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .contact-card h4 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card p {
+            margin: 0.25rem 0;
+            font-size: 0.9rem;
+        }
+
+        .contact-card a {
+            color: var(--accent-blue);
+        }
+
+        /* Template Letter */
+        .template-letter {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-dark);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+        }
+
+        .copy-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            border: none;
+            cursor: pointer;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .copy-btn:hover {
+            background: #e6c200;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .content-panel {
+                max-width: 100%;
+                padding: 2rem;
+                margin-bottom: 300px;
+            }
+
+            .timeline-panel {
+                width: 100%;
+                height: auto;
+                position: fixed;
+                top: auto;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                max-height: 300px;
+                border-left: none;
+                border-top: 1px solid var(--border-dark);
+            }
+
+            .site-footer {
+                margin-right: 0;
+                margin-bottom: 300px;
+            }
+
+            .timeline-visual {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .site-header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .hero-question {
+                font-size: 1.5rem;
+                padding: 1.5rem;
+            }
+
+            .content-panel {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>THE PEOPLE vs. JERRY CREEL</h1>
-        <p class="subtitle">BUILDING OFFICIAL • CITY OF BILOXI, MISSISSIPPI</p>
+    <header class="site-header">
+        <a href="#" class="logo">THE PEOPLE <span>vs.</span> JERRY CREEL</a>
+        <nav class="nav-links">
+            <a href="#take-action" onclick="showSection('take-action')">Take Action</a>
+            <a href="https://twitter.com/intent/tweet?text=1%20summons%20(July%209)%20%2B%204%20affidavits%20(July%2010)%20%3D%20Timeline%20Impossibility.%20What%20was%20the%20July%209%20summons%20based%20on%3F%20%23BiloxiAccountability&url=https://peoplevsjerrycreel.com" target="_blank">Share</a>
+        </nav>
+    </header>
 
-        <div class="box">
-            <div class="timeline">
-                <div class="date-box">
-                    <div class="date">JULY 9, 2025</div>
-                    <div class="label">1 SUMMONS ISSUED</div>
+    <main class="main-container">
+        <section class="content-panel" id="content">
+
+            <!-- SECTION: WHO IS JERRY CREEL -->
+            <div class="content-section" id="section-background">
+                <h1>WHO IS JERRY CREEL?</h1>
+                <p class="subtitle" style="color: var(--accent-red); font-size: 1.2rem; margin-bottom: 2rem;">BUILDING OFFICIAL • CITY OF BILOXI, MISSISSIPPI</p>
+
+                <h2>FIVE HATS, ONE GUY</h2>
+                <p>Jerry Creel holds an extraordinary concentration of power within Biloxi's municipal structure. He simultaneously serves as:</p>
+
+                <div class="stat-grid">
+                    <div class="stat">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">Building Official</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Community Dev. Director</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Historic Preservation Dir.</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Code Enforcement Dir.</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Secretary, Board of Appeals</div>
+                    </div>
                 </div>
-                <div class="arrow">→</div>
-                <div class="date-box">
-                    <div class="date">JULY 10, 2025</div>
-                    <div class="label">4 AFFIDAVITS SIGNED</div>
+
+                <p>When a citizen appeals a Building Official decision, they appeal to the Biloxi Board of Adjustment. The Secretary of that Board? Jerry Creel. The person who prepares the case file? Jerry Creel. The person who briefs the Board? Jerry Creel.</p>
+
+                <p>This creates a structural conflict of interest where the same individual who makes enforcement decisions also controls the appeals process for those decisions.</p>
+
+                <h2>THE DOCUMENTS DON'T LIE</h2>
+                <p>Every claim on this website is supported by official documents obtained through public records requests, federal court filings, or sworn testimony. Read the timestamps. Read the signatures. Draw your own conclusions.</p>
+            </div>
+
+            <!-- SECTION: STOP WORK ORDER -->
+            <div class="content-section" id="section-stop-work">
+                <h1>JUNE 30, 2025</h1>
+                <p class="subtitle" style="color: var(--accent-red); font-size: 1.2rem; margin-bottom: 2rem;">THE STOP WORK ORDER</p>
+
+                <div class="evidence-box critical">
+                    <strong>DOCUMENT:</strong> Stop Work Order<br>
+                    <strong>DATE:</strong> June 30, 2025<br>
+                    <strong>SIGNED BY:</strong> Jerry Creel, Building Official<br>
+                    <strong>PROPERTY:</strong> 929 Division Street, Biloxi, MS
+                </div>
+
+                <p>On June 30, 2025, Jerry Creel issued a Stop Work Order for property located in the Biloxi Historic District. This began a cascade of enforcement actions that would reveal a troubling pattern.</p>
+
+                <h2>WHAT HAPPENED NEXT</h2>
+                <p>Nine days later, criminal charges would be filed. But there's a problem with the timeline—a problem that simple arithmetic can expose.</p>
+
+                <div class="action-buttons">
+                    <button class="btn btn-gold" onclick="showSection('summons')">SEE THE SUMMONS →</button>
                 </div>
             </div>
 
-            <div class="question">
-                WHAT WAS THE JULY 9 SUMMONS BASED ON?
+            <!-- SECTION: THE SUMMONS -->
+            <div class="content-section" id="section-summons">
+                <h1>JULY 9, 2025</h1>
+                <p class="subtitle" style="color: var(--accent-red); font-size: 1.2rem; margin-bottom: 2rem;">THE CRIMINAL SUMMONS</p>
+
+                <div class="evidence-box critical">
+                    <strong>DOCUMENT:</strong> Criminal Summons<br>
+                    <strong>DATE STAMPED:</strong> <span class="date-highlight">JULY 9, 2025</span><br>
+                    <strong>SIGNED BY:</strong> Jerry Creel<br>
+                    <strong>CHARGES:</strong> Building Code Violations<br>
+                    <strong>COMMANDING:</strong> Appearance in Municipal Court
+                </div>
+
+                <p>On July 9, 2025, Jerry Creel signed a criminal summons. This official document, stamped and filed, charged a property owner with building code violations.</p>
+
+                <p>Criminal charges require supporting evidence. In Mississippi, this typically takes the form of an affidavit—a sworn statement by the complaining witness.</p>
+
+                <h3>THE QUESTION</h3>
+                <p>What evidence supported these July 9 charges?</p>
+                <p>Where was the sworn affidavit when this summons was signed?</p>
+
+                <div class="action-buttons">
+                    <button class="btn btn-gold" onclick="showSection('affidavit')">SEE THE AFFIDAVIT →</button>
+                </div>
             </div>
 
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-number">247</div>
-                    <div class="stat-label">Federal Court Filings</div>
+            <!-- SECTION: THE AFFIDAVIT -->
+            <div class="content-section" id="section-affidavit">
+                <h1>JULY 10, 2025</h1>
+                <p class="subtitle" style="color: var(--accent-red); font-size: 1.2rem; margin-bottom: 2rem;">THE SUPPORTING AFFIDAVITS</p>
+
+                <div class="evidence-box critical">
+                    <strong>DOCUMENTS:</strong> Four (4) Sworn Affidavits<br>
+                    <strong>DATE NOTARIZED:</strong> <span class="date-highlight">JULY 10, 2025</span><br>
+                    <strong>SIGNED BY:</strong> Jerry Creel<br>
+                    <strong>STATING:</strong> "I personally observed the following violations..."
                 </div>
-                <div class="stat">
-                    <div class="stat-number">0</div>
-                    <div class="stat-label">Facts Disputed</div>
+
+                <p>On July 10, 2025—one day AFTER the criminal summons was signed—Jerry Creel signed FOUR sworn affidavits claiming to have "personally observed" the violations.</p>
+
+                <p>Four separate documents. Four separate sworn statements. All dated one day after the charges they supposedly support.</p>
+
+                <h3>READ THAT AGAIN</h3>
+
+                <div class="quote-box">
+                    "I, Jerry Creel, being first duly sworn, depose and say: That I personally observed the following violations..."
+                    <div class="quote-attribution">— Jerry Creel, Sworn Affidavit, July 10, 2025</div>
                 </div>
-                <div class="stat">
-                    <div class="stat-number">0</div>
-                    <div class="stat-label">Answers Given</div>
+
+                <p>The affidavits claiming personal observation of violations are dated AFTER the summons charging those violations.</p>
+
+                <div class="action-buttons">
+                    <button class="btn btn-gold" onclick="showSection('arithmetic')">DO THE MATH →</button>
                 </div>
             </div>
-        </div>
 
-        <p class="coming-soon">FULL INVESTIGATION COMING SOON</p>
-    </div>
+            <!-- SECTION: THE ARITHMETIC (DEFAULT) -->
+            <div class="content-section active" id="section-arithmetic">
+                <h1>THE ARITHMETIC</h1>
+                <p class="subtitle" style="color: var(--accent-gold); font-size: 1.2rem; margin-bottom: 2rem;">READ THE DATES. THEN READ THEM AGAIN.</p>
+
+                <div class="timeline-visual">
+                    <div class="date-box">
+                        <div class="date">JULY 9, 2025</div>
+                        <div class="label">1 SUMMONS ISSUED</div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="date-box">
+                        <div class="date">JULY 10, 2025</div>
+                        <div class="label">4 AFFIDAVITS SIGNED</div>
+                    </div>
+                </div>
+
+                <div class="hero-question">
+                    WHAT WAS THE JULY 9 SUMMONS BASED ON?
+                </div>
+
+                <div class="ascii-box">╔════════════════════════════════════════════════════════════════════════════════╗
+║                           <span class="highlight">THE IMPOSSIBLE TIMELINE</span>                              ║
+╠════════════════════════════════════════════════════════════════════════════════╣
+║                                                                                ║
+║   <span class="critical">CHARGES FILED:        July 9, 2025</span>                                           ║
+║   <span class="critical">AFFIDAVITS SIGNED:    July 10, 2025</span>                                          ║
+║                                                                                ║
+║   Jerry Creel filed criminal charges on July 9                                 ║
+║   supported by affidavits he signed on July 10.                                ║
+║                                                                                ║
+║   <span class="highlight">1 summons + 4 affidavits = 5 documents</span>                                       ║
+║   <span class="highlight">The summons came BEFORE all supporting evidence.</span>                              ║
+║                                                                                ║
+║   Unless Jerry Creel has a time machine,                                       ║
+║   this is textbook perjury.                                                    ║
+║                                                                                ║
+╚════════════════════════════════════════════════════════════════════════════════╝</div>
+
+                <h2>THE LEGAL FRAMEWORK</h2>
+
+                <div class="evidence-box">
+                    <strong>MISSISSIPPI CODE ANN. § 97-9-59 (PERJURY):</strong><br><br>
+                    "Every person who shall wilfully and corruptly swear, testify or affirm falsely to any material matter... shall be guilty of perjury, and, on conviction thereof, shall be punished by imprisonment in the penitentiary not more than ten (10) years."
+                </div>
+
+                <h3>ELEMENTS SATISFIED</h3>
+                <p><strong>Under Oath:</strong> The affidavits are sworn documents, notarized on July 10, 2025.</p>
+                <p><strong>False Statement:</strong> The affidavits claim observations that supposedly supported charges filed the day before.</p>
+                <p><strong>Materiality:</strong> The statements were the basis for criminal prosecution.</p>
+                <p><strong>Willfulness:</strong> The timeline contradiction is too obvious to be a mistake.</p>
+
+                <div class="stat-grid">
+                    <div class="stat">
+                        <div class="stat-number">247</div>
+                        <div class="stat-label">Federal Court Filings</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Facts Disputed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Answers Given</div>
+                    </div>
+                </div>
+
+                <p style="text-align: center; margin-top: 2rem; color: var(--text-muted);">The timestamps don't lie.</p>
+            </div>
+
+            <!-- SECTION: ROS LETTER -->
+            <div class="content-section" id="section-ros">
+                <h1>AUGUST 13, 2025</h1>
+                <p class="subtitle" style="color: var(--accent-red); font-size: 1.2rem; margin-bottom: 2rem;">THE ROS LETTER</p>
+
+                <div class="evidence-box">
+                    <strong>DOCUMENT:</strong> Letter from City Attorney<br>
+                    <strong>DATE:</strong> August 13, 2025<br>
+                    <strong>FROM:</strong> Hank Ros, Assistant City Attorney<br>
+                    <strong>TO:</strong> Property Owner<br>
+                    <strong>SUBJECT:</strong> Response to Records Request
+                </div>
+
+                <p>On August 13, 2025, Assistant City Attorney Hank Ros sent a letter in response to a public records request seeking documentation of the July enforcement actions.</p>
+
+                <h3>WHAT THE LETTER REVEALS</h3>
+                <p>The letter confirms the City's position on the enforcement actions but raises additional questions about the documentation timeline and the coordination between the Building Department and the City Attorney's office.</p>
+
+                <p>This letter would later become an exhibit in federal litigation.</p>
+            </div>
+
+            <!-- SECTION: WORKPLACE SURVEILLANCE -->
+            <div class="content-section" id="section-surveillance">
+                <h1>NOVEMBER 3, 2025</h1>
+                <p class="subtitle" style="color: var(--accent-red); font-size: 1.2rem; margin-bottom: 2rem;">WORKPLACE SURVEILLANCE</p>
+
+                <div class="evidence-box critical">
+                    <strong>INCIDENT:</strong> Surveillance at Private Workplace<br>
+                    <strong>DATE:</strong> November 3, 2025 (Monday)<br>
+                    <strong>LOCATION:</strong> Private business premises<br>
+                    <strong>DOCUMENTED BY:</strong> Witness testimony
+                </div>
+
+                <p>On November 3, 2025, witnesses observed what appeared to be surveillance activity at a private workplace connected to the property owner who had been targeted by the July enforcement actions.</p>
+
+                <p>This incident occurred just four days before a critical Board of Adjustment hearing scheduled for November 7, 2025.</p>
+
+                <h3>THE PATTERN</h3>
+                <p>When examined alongside other incidents, a pattern emerges: enforcement actions and surveillance appear to escalate in proximity to legal proceedings.</p>
+            </div>
+
+            <!-- SECTION: BZA DAY -->
+            <div class="content-section" id="section-bza">
+                <h1>NOVEMBER 7, 2025</h1>
+                <p class="subtitle" style="color: var(--accent-red); font-size: 1.2rem; margin-bottom: 2rem;">BOARD OF ADJUSTMENT HEARING</p>
+
+                <div class="evidence-box critical">
+                    <strong>EVENT:</strong> Board of Adjustment Hearing<br>
+                    <strong>DATE:</strong> November 7, 2025<br>
+                    <strong>PRESIDING:</strong> Jerry Creel (as Secretary)<br>
+                    <strong>APPEAL OF:</strong> Building Official's Decision<br>
+                    <strong>BUILDING OFFICIAL:</strong> Jerry Creel
+                </div>
+
+                <h3>THE CONFLICT</h3>
+                <p>On November 7, 2025, Jerry Creel presided as Secretary of the Board of Adjustment over a hearing appealing... Jerry Creel's own decision as Building Official.</p>
+
+                <div class="quote-box">
+                    "who DIRECTED me to issue a stop work order"
+                    <div class="quote-attribution">— Jerry Creel, November 7, 2025 Hearing, Transcript Page 51, Lines 3-6</div>
+                </div>
+
+                <p>During the hearing, Creel's own testimony revealed that he had been "DIRECTED" to issue the Stop Work Order. Not advised. Not recommended. <strong>DIRECTED.</strong></p>
+
+                <h3>WHO DIRECTED HIM?</h3>
+                <p>The chain of command question remains unanswered. If Jerry Creel was directed to issue enforcement actions, who gave the direction? And why?</p>
+            </div>
+
+            <!-- SECTION: FEDERAL LITIGATION -->
+            <div class="content-section" id="section-federal">
+                <h1>FEDERAL LITIGATION</h1>
+                <p class="subtitle" style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">U.S. DISTRICT COURT, SOUTHERN DISTRICT OF MISSISSIPPI</p>
+
+                <div class="stat-grid">
+                    <div class="stat">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Active Lawsuits</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">247</div>
+                        <div class="stat-label">ECF Filings</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Answers to Complaint</div>
+                    </div>
+                </div>
+
+                <h2>CASE NUMBERS</h2>
+                <div class="evidence-box">
+                    <strong>Case 1:25-cv-00178-LG-RPM</strong><br>
+                    Petrini v. City of Biloxi, et al.<br><br>
+                    <strong>Case 1:25-cv-00233-LG-RPM</strong><br>
+                    Petrini v. City of Biloxi, et al.<br><br>
+                    <strong>Case 1:25-cv-00254-LG-RPM</strong><br>
+                    Petrini v. City of Biloxi, et al.
+                </div>
+
+                <h3>CLAIMS ASSERTED</h3>
+                <p>The federal lawsuits assert claims including:</p>
+                <p>• 42 U.S.C. § 1983 (Civil Rights Violations)</p>
+                <p>• Due Process Violations (Fifth and Fourteenth Amendments)</p>
+                <p>• Equal Protection Violations</p>
+                <p>• Monell Liability (Municipal Policy)</p>
+                <p>• State Law Claims</p>
+
+                <h3>THE RECORD SPEAKS</h3>
+                <p>Every document referenced on this website is part of the federal court record. The timestamps, signatures, and dates are matters of public record, available through PACER.</p>
+            </div>
+
+            <!-- SECTION: TAKE ACTION -->
+            <div class="content-section" id="section-take-action">
+                <h1>TAKE ACTION</h1>
+                <p class="subtitle" style="color: var(--accent-gold); font-size: 1.2rem; margin-bottom: 2rem;">DEMAND ACCOUNTABILITY</p>
+
+                <h2>CONTACT THE BILOXI CITY COUNCIL</h2>
+                <p>The City Council has oversight authority over municipal employees. Contact them and demand answers about the July 9/July 10 timeline impossibility.</p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 2rem 0;">
+                    <div class="contact-card">
+                        <h4>Mayor Andrew "FoFo" Gilich</h4>
+                        <p>Email: <a href="mailto:mayor@biloxi.ms.us">mayor@biloxi.ms.us</a></p>
+                        <p>Phone: (228) 435-6254</p>
+                    </div>
+                    <div class="contact-card">
+                        <h4>City Council</h4>
+                        <p>Email: <a href="mailto:council@biloxi.ms.us">council@biloxi.ms.us</a></p>
+                        <p>Phone: (228) 435-6257</p>
+                    </div>
+                </div>
+
+                <h2>TEMPLATE LETTER</h2>
+                <p>Copy and personalize this letter:</p>
+
+                <div class="template-letter" id="template-letter">Dear Mayor Gilich and Members of the Biloxi City Council,
+
+I am writing to request an explanation regarding a troubling timeline in enforcement actions taken by Building Official Jerry Creel.
+
+According to public records:
+- A criminal summons was dated and signed on July 9, 2025
+- The four supporting affidavits were dated and signed on July 10, 2025
+
+This timeline appears to show that criminal charges were filed BEFORE the supporting sworn statements existed.
+
+I respectfully request:
+1. An explanation of how charges can precede supporting affidavits
+2. A review of Jerry Creel's enforcement procedures
+3. Public disclosure of any internal review findings
+
+The timestamps don't lie. I await your response.
+
+Respectfully,
+[Your Name]
+[Your Address]</div>
+
+                <button class="copy-btn" onclick="copyTemplate()">COPY TO CLIPBOARD</button>
+
+                <h2>SHARE THIS INVESTIGATION</h2>
+                <div class="action-buttons">
+                    <a href="https://twitter.com/intent/tweet?text=1%20summons%20(July%209)%20%2B%204%20affidavits%20(July%2010)%20%3D%20Timeline%20Impossibility.%20What%20was%20the%20July%209%20summons%20based%20on%3F%20%23BiloxiAccountability&url=https://peoplevsjerrycreel.com" target="_blank" class="btn btn-outline">SHARE ON TWITTER</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://peoplevsjerrycreel.com" target="_blank" class="btn btn-outline">SHARE ON FACEBOOK</a>
+                </div>
+            </div>
+
+        </section>
+
+        <aside class="timeline-panel" id="timeline">
+            <div class="timeline-title">TIMELINE</div>
+
+            <div class="timeline-event info" onclick="showSection('background')">
+                <div class="event-marker"></div>
+                <div class="event-content">
+                    <div class="event-title">WHO IS JERRY CREEL?</div>
+                </div>
+            </div>
+
+            <div class="timeline-event action" onclick="showSection('stop-work')">
+                <div class="event-marker"></div>
+                <div class="event-content">
+                    <div class="event-date">JUNE 30, 2025</div>
+                    <div class="event-title">STOP WORK ORDER</div>
+                </div>
+            </div>
+
+            <div class="timeline-event critical" onclick="showSection('summons')">
+                <div class="event-marker"></div>
+                <div class="event-content">
+                    <div class="event-date">JULY 9, 2025</div>
+                    <div class="event-title">THE SUMMONS</div>
+                </div>
+            </div>
+
+            <div class="timeline-event critical" onclick="showSection('affidavit')">
+                <div class="event-marker"></div>
+                <div class="event-content">
+                    <div class="event-date">JULY 10, 2025</div>
+                    <div class="event-title">THE AFFIDAVITS</div>
+                </div>
+            </div>
+
+            <div class="timeline-event highlight active" onclick="showSection('arithmetic')">
+                <div class="event-marker"></div>
+                <div class="event-content">
+                    <div class="event-title">★ THE ARITHMETIC</div>
+                </div>
+            </div>
+
+            <div class="timeline-event action" onclick="showSection('ros')">
+                <div class="event-marker"></div>
+                <div class="event-content">
+                    <div class="event-date">AUGUST 13, 2025</div>
+                    <div class="event-title">THE ROS LETTER</div>
+                </div>
+            </div>
+
+            <div class="timeline-event critical" onclick="showSection('surveillance')">
+                <div class="event-marker"></div>
+                <div class="event-content">
+                    <div class="event-date">NOVEMBER 3, 2025</div>
+                    <div class="event-title">WORKPLACE SURVEILLANCE</div>
+                </div>
+            </div>
+
+            <div class="timeline-event critical" onclick="showSection('bza')">
+                <div class="event-marker"></div>
+                <div class="event-content">
+                    <div class="event-date">NOVEMBER 7, 2025</div>
+                    <div class="event-title">BZA HEARING</div>
+                </div>
+            </div>
+
+            <div class="timeline-event action" onclick="showSection('federal')">
+                <div class="event-marker"></div>
+                <div class="event-content">
+                    <div class="event-title">FEDERAL LITIGATION</div>
+                </div>
+            </div>
+
+            <div class="timeline-event action" onclick="showSection('take-action')" style="background: rgba(255, 215, 0, 0.05);">
+                <div class="event-marker" style="background: var(--accent-gold);"></div>
+                <div class="event-content">
+                    <div class="event-title" style="color: var(--accent-gold);">TAKE ACTION</div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="site-footer">
+        <p class="footer-text">
+            This website documents public proceedings and public records.<br>
+            All facts are derived from certified documents, federal court filings, and public records requests.<br>
+            The timeline impossibility is a matter of mathematical fact based on dates printed on official documents.<br><br>
+            Related: <a href="https://peoplevsbiloxi.com">peoplevsbiloxi.com</a><br><br>
+            © 2025 • <a href="mailto:peoplevsbiloxi@gmail.com">Contact</a>
+        </p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show target section
+            const targetSection = document.getElementById('section-' + sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // Update timeline active state
+            document.querySelectorAll('.timeline-event').forEach(event => {
+                event.classList.remove('active');
+            });
+
+            // Find and activate the clicked timeline event
+            const timelineEvents = document.querySelectorAll('.timeline-event');
+            timelineEvents.forEach(event => {
+                if (event.onclick && event.onclick.toString().includes(sectionId)) {
+                    event.classList.add('active');
+                }
+            });
+
+            // Update URL hash
+            window.location.hash = sectionId;
+
+            // Scroll content to top
+            document.querySelector('.content-panel').scrollTop = 0;
+        }
+
+        function copyTemplate() {
+            const template = document.getElementById('template-letter').innerText;
+            navigator.clipboard.writeText(template).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = 'COPIED!';
+                setTimeout(() => {
+                    btn.textContent = 'COPY TO CLIPBOARD';
+                }, 2000);
+            });
+        }
+
+        // Handle URL hash on load
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.slice(1);
+            if (hash) {
+                showSection(hash);
+            }
+        });
+
+        // Handle hash changes
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.slice(1);
+            if (hash) {
+                showSection(hash);
+            }
+        });
+    </script>
+
+    <!-- GoatCounter Analytics -->
+    <script data-goatcounter="https://peoplevsjerrycreel.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
